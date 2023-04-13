@@ -4,11 +4,12 @@ import { Product } from '../models/Product';
 import User from '../models/User'
 
 export const home = async(req: Request, res: Response)=>{
-    console.log("chegou aqui")
+    
 
-    let usuarios = await User.findById(
-        '643013eef9e968dc02424b40'
-    )
+    let usuarios = await User.find({
+        
+    
+    }).sort
 
 
     console.log(usuarios)

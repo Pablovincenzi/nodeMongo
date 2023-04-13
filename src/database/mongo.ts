@@ -1,21 +1,18 @@
-
-import {connect} from "mongoose"
-import dotenv from 'dotenv'
+import { connect, ConnectOptions } from "mongoose";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const mongoConnect = async ()=>{
+export const mongoConnect  = async () => {
     try{
-        
-        console.log("Conectando ao mongoDB")
-        await(process.env.MONGO_URL,{
-            useNewUrlParser:true,
+        console.log('Conectando ao MongoDB...');
+        await connect(process.env.MONGO_URL! as string, {
+            useNewUrlParser: true,
             useUnifiedTopology:true
-        });
-        console.log("Mongo conectado com sucesso")
-        
+
+        } as ConnectOptions);
+        console.log('MongoDB conectado com sucesso!');
     }catch(error){
-        console.log("ERRO CONEXÃO DB",error)
+        console.log('Erro conexão MongoDB', error);
     }
-    
 }
